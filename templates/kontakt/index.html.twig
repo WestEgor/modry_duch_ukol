@@ -1,0 +1,49 @@
+{# Indexní stránka pro kontakty #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Adresář{% endblock %}
+
+{% block body %}
+
+    {% if kontakty %}
+
+        <table>
+            <thead>
+            <tr>
+                <th>Jméno a příjmení</th>
+                <th>Telefonní číslo</th>
+                <th>Email</th>
+                <th>Dlouhá poznámka</th>
+                <th>Editování</th>
+                <th>Smazání</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for kontakt in kontakty %}
+                <tr>
+                    <td>{{ kontakt.celeJmeno }}</td>
+                    <td>{{ kontakt.telefonniCislo }}</td>
+                    <td>{{ kontakt.email }}</td>
+                    <td>{{ kontakt.poznamka }}</td>
+                    <td>
+                        <form action="{{ path('identifikator-kontaktu', {celeJmeno:kontakt.celeJmeno}) }}"
+                              method="POST">
+                            {# name slouží pro odesílání ID do edit kontrolleru #}
+                            <button name="kontakt-id" value="{{ kontakt.id }}">Editovat
+                            </button>
+                        </form>
+                    </td>{#
+                    <td><a href="{{ path('smazat-kontakt', {id:kontakt.id}) }}">
+                            <button>Smazat</button>
+                        </a>
+                    </td> #}
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Žádná data nenalezena!</p>
+    {% endif %}
+
+
+{% endblock %}
