@@ -6,4 +6,7 @@
     {{ form_start(form) }}
     {{ form_widget(form) }}
     {{ form_end(form) }}
+    <a href="{{ path('smazat-kontakt', { id:kontakt_id }) }}">
+        <button>Smazat</button>
+    </a>
 {% endblock %}

@@ -67,7 +67,8 @@ class KontaktyController extends AbstractController
         }
 
         return $this->render('kontakt/editovani.html.twig', [
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'kontakt_id' => $request->getSession()->get('id_kontakt')
         ]);
     }
 
