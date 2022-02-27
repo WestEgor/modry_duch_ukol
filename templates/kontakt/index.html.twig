@@ -32,11 +32,11 @@
                             <button name="kontakt-id" value="{{ kontakt.id }}">Editovat
                             </button>
                         </form>
-                    </td>{#
-                    <td><a href="{{ path('smazat-kontakt', {id:kontakt.id}) }}">
+                    </td>
+                    <td><a href="{{ path('smazat-kontakt', { id:kontakt.id }) }}">
                             <button>Smazat</button>
                         </a>
-                    </td> #}
+                    </td>
                 </tr>
             {% endfor %}
             </tbody>
